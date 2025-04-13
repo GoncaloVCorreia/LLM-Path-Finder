@@ -1,6 +1,6 @@
 import os
 
-ROOT_DIR = "/Users/goncalocorreia/Desktop/test_folder"
+ROOT_DIR = ""
 BATCH_SIZE = 10000
 CHROMA_PATH = "./vector_index_db"
 
