@@ -21,17 +21,35 @@ This is especially useful if:
 
 ---
 
-## Features
+### Crawl & Describe
+Walks through your directories and builds a **metadata layer** by analyzing each file and folder.
 
-- **File Crawler & Reader**: Walks your directories and reads files for indexing.
-- **Document Descriptor**: Summarizes the pre-defined file types into compact metadata descriptions.
-- **Embedder**: Generates vector embeddings.
-- **Parallel Embedding**: Files are embedded in parallel using a configurable number of workers.
-- **Vectorstore Integration**: Stores and retrieves file embeddings (e.g., ChromaDB).
-- **LLM Summarization Chain**: Generates natural language responses to queries, powered by local or API-hosted models.
+### Document Descriptor
+For predefined file types like `.py`, `.pdf`, `.docx`, and others, the system **sends their content to an LLM to generate summaries**. These summaries are then stored as part of the file's metadata.
 
+- The **token budget per file** is automatically adjusted based on your selected model and its context length.
+- If you're using a model with a smaller token limit, summaries will be shorter or truncated.
+- This step enables **semantic search** even when filenames or paths are non-informative.
 
-The variables like token limits, batch sizes, or number of parallel workers can (and should) be adjusted depending on your hardware, model constraints and your user Tier.
+### Embed & Store
+Files and their descriptions are **chunked and embedded into a vector database** for retrieval.
+
+### Parallelized Indexing
+Embedding and summarization tasks are done in **parallel**. The number of workers can be increased depending on your computing power or token/minute quota.
+
+### RAG Chat
+Chat with a local LLM interface to **retrieve file locations, summaries, or folder structures** using natural language.
+
+Each response is structured and returned as a `FileSearchResult`, which includes:
+
+- `score` (0–100): A confidence score estimating how well the result matches your query.
+- `path`: The full path to the relevant file or folder.
+- `justification`: A brief explanation of **why this item was selected**, based on content, metadata, or semantic relevance.
+
+This makes the output easy to parse, display, or integrate into a larger system. The LLM may return more than one file.
+
+### Token-Aware
+The variables like token limits, batch sizes, or number of parallel workers can (and should) be adjusted depending on your hardware, model constraints and user Tier.
 
 ---
 
@@ -50,5 +68,5 @@ Edit `config.py` to set:
 ## How to Run
 
 1. python index.py (to index all your files and directories inside the main root)
-2. python main.py (you can define the user requery in this file) 
+2. python main.py (you can define the user query in this file) 
 
