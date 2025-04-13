@@ -3,13 +3,13 @@
 This project is a local **Retrieval-Augmented Generation (RAG)** pipeline built to help users locate files and folders using natural language. If you ever find yourself asking:
 
 > “Where did I put my medical results?”    
-> “What folder has my notes from the First Semestre?”
+> “What folder has my notes from the First Semester?”
 
 This tool uses an LLM to **search your local documents** semantically, even if you don’t remember file names or folder locations.
 
 ---
 
-## 🎯 Project Goal
+## Project Goal
 
 The aim is simple:  
 Let the user set a root directory, then enable an LLM to **understand the structure and content of your files and folders**—and answer questions like a personal file assistant.
@@ -35,7 +35,7 @@ The variables like token limits, batch sizes, or number of parallel workers can 
 
 ---
 
-## ⚙️ Configuration
+## Configuration
 
 Edit `config.py` to set:
 
