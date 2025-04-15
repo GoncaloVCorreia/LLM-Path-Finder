@@ -27,10 +27,6 @@ Walks through your directories and builds a **metadata layer** by analyzing each
 ### Document Descriptor
 For predefined file types like `.py`, `.pdf`, `.docx`, and others, the system **sends their content to an LLM to generate summaries**. These summaries are then stored as part of the file's metadata.
 
-- The **token budget per file** is automatically adjusted based on your selected model and its context length.
-- If you're using a model with a smaller token limit, summaries will be shorter or truncated.
-- This step enables **semantic search** even when filenames or paths are non-informative.
-
 ### Embed & Store
 Files and their descriptions are **chunked and embedded into a vector database** for retrieval.
 
