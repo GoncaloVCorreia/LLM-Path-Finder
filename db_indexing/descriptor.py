@@ -61,6 +61,7 @@ def describe_item(path, is_file=True):
             
             
         if ext in [".pdf", ".docx", ".doc", ".txt", ".md",".py", ".js", ".ts", ".tsx", ".jsx", ".cpp", ".c", ".h", ".hpp", ".java"]:
+            summary = ""
             if ext == ".pdf":
                 print(f"Pdf path {path}")
                 file_content=read_pdf_text(path)
