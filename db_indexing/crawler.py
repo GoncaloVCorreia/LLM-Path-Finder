@@ -12,5 +12,5 @@ def build_file_queue():
             file_jobs.append((os.path.join(root, folder), False))
         for file in files:
             file_jobs.append((os.path.join(root, file), True))
-    print(f"🧠 Found {len(file_jobs)} items.")
+    print(f"Found {len(file_jobs)} items.")
     return file_jobs
