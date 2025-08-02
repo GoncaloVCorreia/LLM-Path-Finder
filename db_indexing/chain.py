@@ -51,5 +51,5 @@ def safe_summarize_with_groq(prompt) :
 
 #Example of replacing the summarize function
 def summarize_file_content(content) :
-    print("🔍 Summarizing with Groq...")
+    print("Summarizing with Groq...")
     return safe_summarize_with_groq(content)
