@@ -39,7 +39,7 @@ def safe_summarize_with_groq(prompt) :
         # Truncate if too long
         print(estimate_tokens(prompt))
         if estimate_tokens(prompt) > MAX_TOKENS_FOR_SUMMARY:
-            print("⚠️ Truncating long input to avoid context overflow...")
+            print("Truncating long input to avoid context overflow...")
             prompt = truncate_by_tokens(prompt)
             print(estimate_tokens(prompt))
             print("Truncation Finished")
